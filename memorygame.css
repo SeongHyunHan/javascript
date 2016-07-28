@@ -1,0 +1,11 @@
+            html{
+                font-family: verdana;
+            }
+            div{
+                text-align: center;
+                margin: 0 auto;
+            }
+            table,td,tr{
+                margin: 0 auto;
+            }
+

@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title>
+            Oylmpic Mascot Memory Game
+        </title>
+        <link href="memorygame.css" rel ="stylesheet" type="/text/css" />
+        <script> 
+            var backimage = 'Olympic.png';
+            var frontimage = ['mascot2014.jpg','mascot2012.jpg','mascot2010.jpg','mascot2008.jpg','mascot2006.jpg','mascot2004.jpg',
+                'mascot2002.jpg','mascot2000.jpg','mascot1998.jpg','mascot1996.jpg','mascot1994.gif','mascot1992.jpg',
+                'mascot1988win.jpg','mascot1988sum.jpg','mascot1984sum.jpg'];
+            
+            function randOrder(a, b){
+                return (Math.round(Math.random())-0.5);
+            } 
+            var image = [];
+            var choice1, choice2, tmr, tno, tid, cid, count; 
+            for (var i = 0; i < 15; i++) {
+                image[i] = new Image();
+                image[i].src = frontimage[i]; 
+                frontimage[i] = '<img src="images/'+frontimage[i]+'" width="100" height="100" alt="tile" \/>';
+                frontimage[i+15] = frontimage[i];
+            } 
+            function displayBack(i) {
+                document.getElementById('img'+i).innerHTML = '<div onclick="display('+i+');return false;"><img src="images/'+backimage+'" width="100" height="100" alt="back" \/><\/div>';
+            }
+
+            window.onload=start;
+            function start() {
+                for (var i = 0; i <= 29 ;i++){
+                    displayBack(i);
+                }
+                tmr = tno = count = 0;
+                frontimage.sort( randOrder );              
+            } 
+            function display(sel) {
+                if (tno>1) {
+                    turnback();
+                }
+                document.getElementById('img'+sel).innerHTML = frontimage[sel];
+                if (tno==0) {
+                    choice1 = sel;
+                }
+                else {
+                    choice2 = sel;
+                    cid = setTimeout('turnback()', 500);
+                }
+                tno++;
+            } 
+            function turnback() {
+                tno = 0;
+                if (frontimage[choice1] != frontimage[choice2]) {
+                    displayBack(choice1);
+                    displayBack(choice2);
+                } 
+            }
+        </script>         
+    </head> 
+    <body>
+        <div align="center"><h1>Oylmpic Mascot Memory Game</h1></div>
+        <div align="center">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td id="img0"></td>
+                    <td id="img1"></td>
+                    <td id="img2"></td>
+                    <td id="img3"></td>
+                    <td id="img4"></td>
+                </tr>
+                <tr>
+                    <td id="img5"></td>
+                    <td id="img6"></td>
+                    <td id="img7"></td>
+                    <td id="img8"></td>
+                    <td id="img9"></td>
+                </tr>
+                <tr>
+                    <td id="img10"></td>
+                    <td id="img11"></td>
+                    <td id="img12"></td>
+                    <td id="img13"></td>
+                    <td id="img14"></td>
+                </tr>
+                <tr>
+                    <td id="img15"></td>
+                    <td id="img16"></td>
+                    <td id="img17"></td>
+                    <td id="img18"></td>
+                    <td id="img19"></td>
+                </tr>
+                <tr>
+                    <td id="img20"></td>
+                    <td id="img21"></td>
+                    <td id="img22"></td>
+                    <td id="img23"></td>
+                    <td id="img24"></td>
+                </tr>
+                <tr>
+                    <td id="img25"></td>
+                    <td id="img26"></td>
+                    <td id="img27"></td>
+                    <td id="img28"></td>
+                    <td id="img29"></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div align = "center">
+            <form action = "helppage.html" method = "get">
+            <input type="button" value="Reset" onclick="window.start()"/>
+            <input type ="submit" value="Help"/>
+        </form>
+        </div>
+    </body>
+</html>
