@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- New year greeting card generator created by Seong Hyun Han
+     This program ask user name, calendar, background, and text color to
+     Generate Greeting card with user input-->
+<html>
+    <head>
+        <title>Greeting Card Generator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="GreetingCard.css" rel ="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="card">
+            <h2>New Year Greating Card</h2>
+            <p></p>
+            <img class = "luckycharm" src = "images/luckycharm.jpg">
+            <img class = "luckycharm" src = "images/luckycharm.jpg">
+            <img class = "luckycharm" src = "images/luckycharm.jpg">
+            <br>
+            <form id = "inputfield">
+                First Name : <input type ="text" id="first" value="First Name" />
+                <p></p>
+                Last Name : <input type ="text" id="last" value="Last Name" />
+                <p></p>
+                Select Calender : <!-- decide greeting comments either New Year or Chinese New Year-->
+                <input type ="radio" id ="r1" name = "calendar"  /> Solar
+                <input type ="radio" id ="r2" name = "calendar"  /> Lunar 
+                <p>Select Background: 
+                    <!-- selecting background image-->
+                <select id="bg">
+                <option>Firework</option>
+                <option>Korean Tradition</option>
+                </select>
+                </p>
+                <p>Select Text Color : 
+                <select id="color">
+                <option>black</option>
+                <option>blue</option>
+                <option>brown</option>
+                <option>red</option>
+                <option>white</option>
+                <option>green</option>
+                </select>
+                </p>
+            </form>
+            <input id= "generate" type="button" value ="Generate Card" onclick="generate()" /><br>
+            <img id = "cloth" src = "images/hanbok.jpg">
+        </div>
+        <div id="animation">
+            <h1 id = "greeting"></h2>
+            <img id="lucky" src='images/luckycharm.jpg' />
+            <h2 id="name"></h2>
+        </div>
+        <script src = "GreetingCard.js"></script>
+    </body>
+</html>
+ 
